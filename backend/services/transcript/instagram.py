@@ -99,7 +99,8 @@ def _download_audio(url: str, output_path: str) -> str:
         "outtmpl": output_path,
         "quiet": True,
         "no_warnings": True,
-        "extractor_args": {"youtube": {"player_client": ["android", "ios", "mweb"]}}
+        "cookiefile": "www.youtube.com_cookies.txt",
+        "extractor_args": {"youtube": {"player_client": ["web"]}}
     }
 
     if ffmpeg_dir:
