@@ -183,13 +183,23 @@ async def _fetch_youtube_data(url: str, video_id: str) -> dict:
     """Fetch YouTube transcript + metadata concurrently."""
     logger.info("[YouTube] Starting fetch for video_id=%s", video_id)
 
-    transcript_task = asyncio.to_thread(yt_transcript.fetch_transcript, video_id)
+    async def _safe_transcript_fetch():
+        from core.exceptions import TranscriptUnavailableError
+        try:
+            segments = await asyncio.to_thread(yt_transcript.fetch_transcript, video_id)
+            full_transcript = yt_transcript.get_full_transcript(segments)
+            hook_transcript = yt_transcript.get_hook_transcript(segments, seconds=5.0)
+            return full_transcript, hook_transcript, segments
+        except TranscriptUnavailableError as e:
+            logger.warning("[YouTube] Native transcript API failed (%s). Falling back to Whisper via yt-dlp...", e)
+            return await ig_transcript.fetch_transcript(url)
+
+    transcript_task = _safe_transcript_fetch()
     metadata_task = youtube_meta.fetch_metadata(video_id, url)
 
-    segments, meta = await asyncio.gather(transcript_task, metadata_task)
-
-    full_transcript = yt_transcript.get_full_transcript(segments)
-    hook_transcript = yt_transcript.get_hook_transcript(segments, seconds=5.0)
+    (full_transcript, hook_transcript, _segments), meta = await asyncio.gather(
+        transcript_task, metadata_task
+    )
 
     logger.info(
         "[YouTube] Done: '%s' | %d chars | hook: '%s...'",
