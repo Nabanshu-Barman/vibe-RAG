@@ -100,7 +100,7 @@ def _download_audio(url: str, output_path: str) -> str:
         "outtmpl": output_path,
         "quiet": True,
         "no_warnings": True,
-        "cookiefile": "cookies.txt",
+        "cookiefile": "www.youtube.com_cookies.txt",
         "extractor_args": {"youtube": {"player_client": ["tv,web_creator,default"]}}
     }
 
