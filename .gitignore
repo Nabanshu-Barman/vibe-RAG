@@ -1,0 +1,24 @@
+# Environments
+.env
+.env.local
+.venv/
+venv/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Node
+node_modules/
+npm-debug.log
+.next/
+out/
+
+# Database
+backend/chroma_db/
+
+# Misc
+.DS_Store
+*.pdf
+*.log
