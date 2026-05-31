@@ -96,7 +96,6 @@ def _download_audio(url: str, output_path: str) -> str:
         )
 
     ydl_opts: dict = {
-        "format": "ba/b/bestaudio/best",
         "outtmpl": output_path,
         "quiet": True,
         "no_warnings": True,
