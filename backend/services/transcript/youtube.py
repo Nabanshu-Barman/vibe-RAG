@@ -30,7 +30,7 @@ from core.exceptions import TranscriptUnavailableError, VideoFetchError
 logger = logging.getLogger(__name__)
 
 # Single instance reused across all requests (thread-safe, stateless)
-_api = YouTubeTranscriptApi()
+_api = YouTubeTranscriptApi(cookies="www.youtube.com_cookies.txt")
 
 
 class TranscriptSegment(TypedDict):
