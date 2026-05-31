@@ -82,6 +82,12 @@ Honest reporting is fundamentally better engineering than hallucinated metrics.
 
 ---
 
+## 🕵️ The Datacenter IP Tax (Scraping Reality)
+If you inspect the repository, you'll notice a `cookies.txt` file injected into the backend. 
+**Why?** Because deploying to any major cloud provider (AWS, GCP, Render) instantly triggers YouTube's "Sign in to confirm you're not a bot" PoWeb-Token blockade on datacenter IP ranges. While naive scrapers fail in production, this architecture circumvents the IP block entirely by passing authenticated burner cookies directly into the `yt-dlp` Whisper fallback pipeline. This proves the system can actually execute in a hostile cloud environment, not just on `localhost`.
+
+---
+
 ## 💻 Running the Project
 
 ### 1. Clone & Setup
