@@ -100,6 +100,7 @@ def _download_audio(url: str, output_path: str) -> str:
         "outtmpl": output_path,
         "quiet": True,
         "no_warnings": True,
+        "extractor_args": {"youtube": {"player_client": ["android"]}}
     }
 
     if ffmpeg_dir:
@@ -171,10 +172,10 @@ async def fetch_transcript(url: str) -> tuple[str, str, list[WhisperSegment]]:
 
         except yt_dlp.utils.DownloadError as exc:
             logger.error("yt-dlp download failed: %s", exc)
-            raise VideoFetchError(f"Could not download Instagram Reel: {exc}")
+            raise VideoFetchError(f"Could not download Video (Bot block or unavailable): {exc}")
         except Exception as exc:
-            logger.error("Instagram transcription failed: %s", exc)
-            raise TranscriptUnavailableError("Instagram Reel")
+            logger.error("Video transcription failed: %s", exc)
+            raise TranscriptUnavailableError("Video")
 
         segments: list[WhisperSegment] = result.get("segments", [])
         full_text = result.get("text", "").strip()
