@@ -100,7 +100,7 @@ def _download_audio(url: str, output_path: str) -> str:
         "outtmpl": output_path,
         "quiet": True,
         "no_warnings": True,
-        "extractor_args": {"youtube": {"player_client": ["android"]}}
+        "extractor_args": {"youtube": {"player_client": ["ios,android,web"]}}
     }
 
     if ffmpeg_dir:
