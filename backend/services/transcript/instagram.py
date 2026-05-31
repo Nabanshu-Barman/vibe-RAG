@@ -106,6 +106,19 @@ def _download_audio(url: str, output_path: str) -> str:
         ydl_opts["ffmpeg_location"] = ffmpeg_dir
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        # --- DIAGNOSTIC LOGGING ---
+        logger.info(f"YDL_OPTS: {ydl_opts}")
+        try:
+            info = ydl.extract_info(url, download=False)
+            logger.info(f"TITLE: {info.get('title')}")
+            formats = info.get('formats', [])
+            logger.info(f"FORMAT COUNT: {len(formats)}")
+            for f in formats[:20]:
+                logger.info(f"FORMAT: {f.get('format_id')} {f.get('ext')} {f.get('vcodec')} {f.get('acodec')}")
+        except Exception as e:
+            logger.error(f"DIAGNOSTIC EXTRACTION ERROR: {e}")
+        # --------------------------
+        
         ydl.extract_info(url, download=True)
 
     # Fallback: find any file yt-dlp wrote with our base path
