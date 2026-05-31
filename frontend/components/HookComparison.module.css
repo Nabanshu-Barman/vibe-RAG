@@ -1,0 +1,79 @@
+.wrapper {
+  background: var(--card);
+  padding: 18px 20px;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hookBox {
+  padding: 14px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  border-left: 3px solid;
+}
+
+.hookA {
+  border-left-color: var(--accent);
+}
+
+.hookB {
+  border-left-color: var(--accent-blue);
+}
+
+.hookLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.hookBadge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.hookBadgeVideoA {
+  color: var(--accent);
+  border-color: rgba(124, 110, 245, 0.25);
+}
+
+.hookBadgeVideoB {
+  color: var(--accent-blue);
+  border-color: rgba(79, 195, 247, 0.25);
+}
+
+.hookPlatform {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.hookText {
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  font-style: italic;
+}

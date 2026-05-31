@@ -1,0 +1,66 @@
+.wrapper {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--card);
+  animation: fadeInUp 0.4s ease 0.3s both;
+}
+
+.toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: none;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 600;
+  transition: var(--transition);
+  border-bottom: 1px solid transparent;
+}
+
+.toggle:hover {
+  background: var(--card-hover);
+}
+
+[aria-expanded='true'].toggle {
+  border-bottom-color: var(--border);
+}
+
+.toggleIcon {
+  font-size: 16px;
+}
+
+.toggleText {
+  flex: 1;
+  text-align: left;
+}
+
+.chevron {
+  color: var(--text-muted);
+  font-size: 10px;
+  transition: transform 0.25s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* ─── Collapsible ────────────────────────────────────────────────────── */
+.content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contentOpen {
+  max-height: 1200px;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+}

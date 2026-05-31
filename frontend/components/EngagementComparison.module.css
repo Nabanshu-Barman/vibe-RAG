@@ -1,0 +1,80 @@
+.wrapper {
+  background: var(--card);
+  padding: 18px 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.winnerBadge {
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  color: var(--success);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.barRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.barLabel {
+  width: 52px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.barTrack {
+  flex: 1;
+  height: 10px;
+  background: var(--surface);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  animation: barGrow 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.barA {
+  background: var(--accent-gradient);
+}
+
+.barB {
+  background: linear-gradient(135deg, #4fc3f7, #34d399);
+}
+
+.barValue {
+  width: 48px;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  flex-shrink: 0;
+}

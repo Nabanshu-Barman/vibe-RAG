@@ -1,0 +1,88 @@
+.wrapper {
+  background: var(--card);
+  padding: 18px 20px;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.th {
+  text-align: left;
+  padding: 6px 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border);
+}
+
+.th:first-child { padding-left: 0; }
+
+.row {
+  border-bottom: 1px solid rgba(42, 42, 58, 0.5);
+  transition: background 0.15s ease;
+}
+
+.row:hover {
+  background: var(--card-hover);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.td {
+  padding: 9px 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.td:first-child {
+  padding-left: 0;
+}
+
+.metricLabel {
+  padding: 9px 12px 9px 0;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.winner {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.delta {
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.deltaUp {
+  background: rgba(52, 211, 153, 0.12);
+  color: var(--success);
+}
+
+.deltaDown {
+  background: rgba(248, 113, 113, 0.12);
+  color: var(--error);
+}
+
+.deltaEqual {
+  color: var(--text-muted);
+}

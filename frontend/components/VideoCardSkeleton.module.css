@@ -1,0 +1,95 @@
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  animation: fadeInUp 0.3s ease both;
+}
+
+.skel {
+  background: linear-gradient(90deg, var(--surface) 25%, var(--card-hover) 50%, var(--surface) 75%);
+  background-size: 200% 100%;
+  border-radius: var(--radius-sm);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.badgeSkel { width: 80px; height: 22px; border-radius: var(--radius-pill); }
+.idSkel { width: 52px; height: 16px; }
+
+.thumbnailSkel { width: 100%; aspect-ratio: 16/9; border-radius: 0; }
+
+.body {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.titleSkel { width: 100%; height: 14px; }
+.titleSkelShort { width: 65%; height: 14px; }
+
+.creatorRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatarSkel { width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0; }
+
+.creatorLines {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.nameSkel { width: 100px; height: 12px; }
+.followerSkel { width: 70px; height: 10px; }
+
+.statsBar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.statIconSkel { width: 20px; height: 20px; border-radius: 50%; }
+.statValSkel { width: 36px; height: 10px; }
+
+.engRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.engLabelSkel { width: 110px; height: 10px; }
+.engNumSkel { width: 70px; height: 20px; border-radius: var(--radius-pill); }
+
+.tagRow {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tagSkel { width: 60px; height: 22px; border-radius: var(--radius-pill); }

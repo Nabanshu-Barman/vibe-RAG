@@ -1,0 +1,57 @@
+.toast {
+  position: fixed;
+  top: 76px;
+  right: 20px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid;
+  font-size: 13px;
+  font-weight: 500;
+  max-width: 360px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  animation: slideInRight 0.3s ease both;
+}
+
+.error {
+  background: rgba(248, 113, 113, 0.1);
+  border-color: rgba(248, 113, 113, 0.3);
+  color: var(--error);
+}
+
+.success {
+  background: rgba(52, 211, 153, 0.1);
+  border-color: rgba(52, 211, 153, 0.3);
+  color: var(--success);
+}
+
+.info {
+  background: rgba(124, 110, 245, 0.1);
+  border-color: rgba(124, 110, 245, 0.3);
+  color: var(--accent);
+}
+
+.icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.message {
+  flex: 1;
+  color: var(--text-primary);
+  font-size: 13px;
+}
+
+.close {
+  color: var(--text-muted);
+  font-size: 12px;
+  padding: 2px 4px;
+  transition: var(--transition);
+}
+
+.close:hover {
+  color: var(--text-primary);
+}
