@@ -96,7 +96,6 @@ def _download_audio(url: str, output_path: str) -> str:
         )
 
     ydl_opts: dict = {
-        "format": "b",
         "outtmpl": output_path,
         "quiet": True,
         "no_warnings": True,
@@ -105,20 +104,9 @@ def _download_audio(url: str, output_path: str) -> str:
 
     if ffmpeg_dir:
         ydl_opts["ffmpeg_location"] = ffmpeg_dir
-        ydl_opts["postprocessors"] = [{
-            "key": "FFmpegExtractAudio",
-            "preferredcodec": "wav",
-            "preferredquality": "192",
-        }]
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.extract_info(url, download=True)
-
-    # After postprocessing yt-dlp appends the codec extension
-    if ffmpeg_dir:
-        wav_path = output_path + ".wav"
-        if os.path.exists(wav_path):
-            return wav_path
 
     # Fallback: find any file yt-dlp wrote with our base path
     directory = os.path.dirname(output_path)
