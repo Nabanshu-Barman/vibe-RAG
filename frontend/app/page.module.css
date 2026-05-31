@@ -1,0 +1,95 @@
+.main {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  min-height: 100vh;
+  padding-top: 60px; /* offset for fixed AppBar */
+}
+
+/* ─── Left Panel ──────────────────────────────────────────────────── */
+.leftPanel {
+  overflow-y: auto;
+  border-right: 1px solid var(--border);
+  min-height: calc(100vh - 60px);
+}
+
+/* ─── Right Panel ─────────────────────────────────────────────────── */
+.rightPanel {
+  position: sticky;
+  top: 60px;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Video Section ───────────────────────────────────────────────── */
+.videoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  animation: fadeIn 0.3s ease both;
+}
+
+.videosHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.videosTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.resetBtn {
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.resetBtn:hover {
+  color: var(--text-primary);
+  border-color: rgba(124, 110, 245, 0.3);
+  background: rgba(124, 110, 245, 0.06);
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .leftPanel {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    min-height: auto;
+  }
+
+  .rightPanel {
+    position: relative;
+    top: 0;
+    height: 70vh;
+  }
+}
+
+@media (max-width: 640px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .videoSection {
+    padding: 16px;
+  }
+}
