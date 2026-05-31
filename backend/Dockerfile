@@ -2,7 +2,7 @@ FROM python:3.11-slim
 
 # Install system dependencies including ffmpeg for Whisper and yt-dlp
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends ffmpeg && \
+    apt-get install -y --no-install-recommends ffmpeg nodejs && \
     rm -rf /var/lib/apt/lists/*
 
 # Set working directory
